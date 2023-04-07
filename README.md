@@ -59,7 +59,7 @@ Display all the Transformed images.
 
 Developed By: ABRIN NISHA A
 
-Register Number: 21222223005
+Register Number: 212222230005
 ```python
 
 import numpy as np
