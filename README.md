@@ -1,103 +1,193 @@
 # Image-Transformation
-## Aim
+
+## Aim:
+
 To perform image transformation such as Translation, Scaling, Shearing, Reflection, Rotation and Cropping using OpenCV and Python.
 
 ## Software Required:
+
 Anaconda - Python 3.7
 
 ## Algorithm:
-### Step1:
-<br>
 
-### Step2:
-<br>
+## Step 1:
 
-### Step3:
-<br>
+Import the necessary libraries and read the original image and save it as a image variable.
 
-### Step4:
-<br>
+## Step 2:
 
-### Step5:
-<br>
+Translate the image using
+M=np.float32([[1,0,20],[0,1,50],[0,0,1]])
+translated_img=cv2.warpPerspective(input_img,M,(cols,rows))
+
+## Step 3:
+
+Scale the image using
+M=np.float32([[1.5,0,0],[0,2,0],[0,0,1]])
+scaled_img=cv2.warpPerspective(input_img,M,(cols,rows))
+
+## Step 4:
+
+Shear the image using
+M_x=np.float32([[1,0.2,0],[0,1,0],[0,0,1]])
+sheared_img_xaxis=cv2.warpPerspective(input_img,M_x,(cols,rows))
+
+## Step 5:
+
+Reflection of image can be achieved through the code
+M_x=np.float32([[1,0,0],[0,-1,rows],[0,0,1]])
+reflected_img_xaxis=cv2.warpPerspective(input_img,M_x,(cols,rows))
+
+## Step 6:
+
+Rotate the image using
+angle=np.radians(45)
+M=np.float32([[np.cos(angle),-(np.sin(angle)),0],[np.sin(angle),np.cos(angle),0],[0,0,1]])
+rotated_img=cv2.warpPerspective(input_img,M,(cols,rows))
+
+## Step 7:
+
+Crop the image using
+cropped_img=input_img[20:150,60:230]
+
+## Step 8:
+
+Display all the Transformed images.
 
 ## Program:
+
+
+Developed By: ABRIN NISHA A
+
+Register Number: 21222223005
 ```python
-Developed By:
-Register Number:
-i)Image Translation
 
+import numpy as np
+import cv2
+import matplotlib.pyplot as plt
+input_img=cv2.imread("paris.jpg")
+input_img=cv2.cvtColor(input_img,cv2.COLOR_BGR2RGB)
+plt.axis('off')
+plt.imshow(input_img)
+plt.show()
+rows,cols,dim=input_img.shape
+```
 
-ii) Image Scaling
+# i)Image Translation:
 
+```python
+M=np.float32([[1,0,20],
+             [0,1,50],
+             [0,0,1]])
+translated_img=cv2.warpPerspective(input_img,M,(cols,rows))
+plt.axis('off')
+plt.imshow(translated_img)
+plt.show()
+```
 
+# ii) Image Scaling:
 
-iii)Image shearing
+```python
+M=np.float32([[1.5,0,0],
+             [0,2,0],
+             [0,0,1]])
+scaled_img=cv2.warpPerspective(input_img,M,(cols,rows))
+plt.axis('off')
+plt.imshow(scaled_img)
+plt.show()
+```
 
+# iii)Image shearing:
 
+```python
+M_x=np.float32([[1,0.2,0],
+               [0,1,0],
+               [0,0,1]])
+M_y=np.float32([[1,0,0],
+               [0.4,1,0],
+               [0,0,1]])
+sheared_img_xaxis=cv2.warpPerspective(input_img,M_x,(cols,rows))
+sheared_img_yaxis=cv2.warpPerspective(input_img,M_y,(cols,rows))
+plt.axis('off')
+plt.imshow(sheared_img_xaxis)
+plt.show()
+plt.axis('off')
+plt.imshow(sheared_img_yaxis)
+plt.show()
+```
 
-iv)Image Reflection
+# iv)Image Reflection:
 
+```python
+M_x=np.float32([[1,0,0],
+               [0,-1,rows],
+               [0,0,1]])
+M_y=np.float32([[-1,0,cols],
+               [0,1,0],
+               [0,0,1]])
+reflected_img_xaxis=cv2.warpPerspective(input_img,M_x,(cols,rows))
+reflected_img_yaxis=cv2.warpPerspective(input_img,M_y,(cols,rows))
+plt.axis('off')
+plt.imshow(reflected_img_xaxis)
+plt.show()
+plt.axis('off')
+plt.imshow(reflected_img_yaxis)
+plt.show()
+```
 
+# v)Image Rotation:
 
+```python
+angle=np.radians(45)
+M=np.float32([[np.cos(angle),-(np.sin(angle)),0],
+               [np.sin(angle),np.cos(angle),0],
+               [0,0,1]])
+rotated_img=cv2.warpPerspective(input_img,M,(cols,rows))
+plt.axis('off')
+plt.imshow(rotated_img)
+plt.show()
+```
 
-v)Image Rotation
+# vi)Image Cropping:
 
-
-
-
-vi)Image Cropping
-
-
-
-
-
+```python
+cropped_img=input_img[20:150,60:230]
+plt.axis('off')
+plt.imshow(cropped_img)
+plt.show()
 ```
 ## Output:
-### i)Image Translation
-<br>
-<br>
-<br>
-<br>
 
-### ii) Image Scaling
-<br>
-<br>
-<br>
-<br>
+![](o.png)
+
+### i)Image Translation:
+
+![](o1.png)
 
 
-### iii)Image shearing
-<br>
-<br>
-<br>
-<br>
+### ii) Image Scaling:
 
+![](o2.png)
 
-### iv)Image Reflection
-<br>
-<br>
-<br>
-<br>
+### iii)Image shearing:
 
+![](o3.png)
 
+![](o4.png)
 
-### v)Image Rotation
-<br>
-<br>
-<br>
-<br>
+### iv)Image Reflection:
 
+![](o5.png)
 
+![](o6.png)
 
-### vi)Image Cropping
-<br>
-<br>
-<br>
-<br>
+### v)Image Rotation:
 
+![](o7.png)
 
+### vi)Image Cropping:
 
+![](o9.png)
 
 ## Result: 
 
